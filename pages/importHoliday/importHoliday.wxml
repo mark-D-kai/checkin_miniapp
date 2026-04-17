@@ -1,0 +1,72 @@
+<view class="container">
+  <!-- 说明卡片 -->
+  <view class="card info-card">
+    <view class="card-title">JSON 格式要求</view>
+    <view class="code-block">
+      <text class="code-text">{"holidays": [{"date": "2025-01-01", "name": "元旦", "isHoliday": true}, ...]}</text>
+    </view>
+    <view class="info-tips">
+      <text class="tip-item">- 文件须为 .json 格式</text>
+      <text class="tip-item">- 顶层包含 holidays 数组</text>
+      <text class="tip-item">- 每条数据需有 date 字段</text>
+      <text class="tip-item">- 导入时自动合并去重</text>
+    </view>
+  </view>
+
+  <!-- 选择文件按钮 -->
+  <view class="card action-card">
+    <button class="choose-btn" bindtap="chooseFile">选择 JSON 文件</button>
+  </view>
+
+  <!-- 已选文件信息 -->
+  <view class="card file-card" wx:if="{{fileContent}}">
+    <view class="file-header">
+      <view class="file-info">
+        <text class="file-icon">F</text>
+        <view class="file-detail">
+          <text class="file-name">假日数据文件</text>
+          <text class="file-count">共 {{previewCount}} 条假日数据</text>
+        </view>
+      </view>
+      <view class="clear-btn" bindtap="clearFile">
+        <text class="clear-text">清除</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 导入预览 -->
+  <view class="card preview-card" wx:if="{{previewData.length > 0}}">
+    <view class="card-title">数据预览（前 {{previewData.length}} 条）</view>
+    <view class="preview-list">
+      <view class="preview-item" wx:for="{{previewData}}" wx:key="date">
+        <text class="preview-date">{{item.date}}</text>
+        <text class="preview-name">{{item.holidayName || ''}}</text>
+        <view class="preview-tag {{item.isHoliday ? 'tag-holiday' : (item.isWorkday ? 'tag-workday' : 'tag-normal')}}">
+          <text>{{item.isHoliday ? '假日' : (item.isWorkday ? '调休' : '普通')}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="preview-more" wx:if="{{previewCount > 5}}">
+      <text class="more-text">... 还有 {{previewCount - 5}} 条数据</text>
+    </view>
+  </view>
+
+  <!-- 确认导入按钮 -->
+  <view class="card action-card" wx:if="{{fileContent}}">
+    <button class="import-btn {{isLoading ? 'disabled' : ''}}" bindtap="importData" disabled="{{isLoading}}">
+      {{isLoading ? '导入中...' : '确认导入'}}
+    </button>
+  </view>
+
+  <!-- 错误提示 -->
+  <view class="msg-bar error-bar" wx:if="{{errorMsg}}">
+    <text class="msg-icon">!</text>
+    <text class="msg-text">{{errorMsg}}</text>
+  </view>
+
+  <!-- 成功提示 -->
+  <view class="msg-bar success-bar" wx:if="{{successMsg}}">
+    <text class="msg-icon">✓</text>
+    <text class="msg-text">{{successMsg}}</text>
+  </view>
+</view>

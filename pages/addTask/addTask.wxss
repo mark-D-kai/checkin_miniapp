@@ -1,0 +1,173 @@
+/* ==================== 页面容器 ==================== */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 40rpx;
+}
+
+/* ==================== 表单区域 ==================== */
+.form-section {
+  background-color: #ffffff;
+  margin: 24rpx;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+}
+
+.form-item {
+  margin-bottom: 36rpx;
+}
+
+.form-item:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.form-input {
+  width: 100%;
+  height: 80rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  padding: 0 24rpx;
+  font-size: 28rpx;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.form-textarea {
+  width: 100%;
+  min-height: 160rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  color: #333333;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+/* ==================== 频率选择 ==================== */
+.radio-label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 40rpx;
+  margin-top: 8rpx;
+}
+
+.radio-label text {
+  font-size: 28rpx;
+  color: #555555;
+  margin-left: 8rpx;
+}
+
+/* ==================== 颜色选择 ==================== */
+.color-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.color-item {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4rpx solid transparent;
+  transition: all 0.2s;
+}
+
+.color-item.selected {
+  border-color: #333333;
+  transform: scale(1.1);
+}
+
+.color-check {
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+/* ==================== 任务展示 (miss/note 模式) ==================== */
+.task-display {
+  padding: 24rpx;
+  background-color: #f8f9fa;
+  border-radius: 12rpx;
+  margin-bottom: 32rpx;
+}
+
+.task-display-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 8rpx;
+}
+
+.task-display-date {
+  font-size: 26rpx;
+  color: #999999;
+}
+
+/* ==================== 状态展示 ==================== */
+.status-display {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  border-radius: 12rpx;
+  margin-bottom: 32rpx;
+}
+
+.status-display.missed {
+  background-color: #fff0f0;
+}
+
+.status-icon {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  background-color: #e53935;
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx;
+}
+
+.status-label {
+  font-size: 28rpx;
+  color: #e53935;
+  font-weight: 500;
+}
+
+/* ==================== 保存按钮 ==================== */
+.save-section {
+  padding: 24rpx;
+  margin-top: 40rpx;
+}
+
+.save-btn {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  background-color: #4A90D9;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 600;
+  border-radius: 44rpx;
+  border: none;
+  text-align: center;
+}
+
+.save-btn::after {
+  border: none;
+}

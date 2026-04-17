@@ -1,0 +1,103 @@
+<view class="container">
+  <!-- 任务选择 -->
+  <view class="task-picker-section" wx:if="{{tasks.length > 0}}">
+    <picker mode="selector" range="{{tasks}}" range-key="name" value="{{selectedTaskIndex}}" bindchange="selectTask">
+      <view class="picker-display">
+        <text class="picker-label">选择任务：</text>
+        <text class="picker-value">{{tasks[selectedTaskIndex].name}}</text>
+        <text class="picker-arrow">></text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 无任务提示 -->
+  <view class="empty-state" wx:if="{{tasks.length === 0}}">
+    <text class="empty-text">暂无活跃任务</text>
+    <text class="empty-hint">请先在首页添加打卡任务</text>
+  </view>
+
+  <!-- 统计内容 -->
+  <block wx:if="{{tasks.length > 0}}">
+    <!-- 统计卡片 -->
+    <view class="stats-cards">
+      <view class="stat-card">
+        <text class="stat-value">{{streakDays}}</text>
+        <text class="stat-label">连续打卡(天)</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-value">{{completionRateText}}</text>
+        <text class="stat-label">总完成率</text>
+      </view>
+      <view class="stat-card">
+        <text class="stat-value">{{monthlyRateText}}</text>
+        <text class="stat-label">本月完成率</text>
+      </view>
+    </view>
+
+    <!-- 总打卡次数 -->
+    <view class="total-checkins">
+      <text class="total-label">总打卡次数</text>
+      <text class="total-value">{{totalCheckIns}} 次</text>
+    </view>
+
+    <!-- 月度打卡日历 -->
+    <view class="calendar-section">
+      <view class="calendar-header">
+        <view class="month-selector">
+          <text class="month-arrow" bindtap="prevMonth">←</text>
+          <text class="calendar-title">{{currentYear}}年{{currentMonth}}月</text>
+          <text class="month-arrow" bindtap="nextMonth">→</text>
+        </view>
+      </view>
+      <view class="calendar-weekdays">
+        <text class="weekday">日</text>
+        <text class="weekday">一</text>
+        <text class="weekday">二</text>
+        <text class="weekday">三</text>
+        <text class="weekday">四</text>
+        <text class="weekday">五</text>
+        <text class="weekday">六</text>
+      </view>
+      <view class="calendar-days">
+        <view wx:for="{{calendarData}}" wx:key="date" class="day-item" bindtap="selectDate" data-date="{{item.date}}">
+          <text class="day-number">{{item.day}}</text>
+          <view class="status-dot {{item.status}}"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 选中日期的打卡记录 -->
+    <view class="records-section" wx:if="{{selectedDate}}">
+      <view class="records-title">
+        <text>{{selectedDate}} - {{selectedTask.name}} 打卡详情</text>
+      </view>
+
+      <!-- 未打卡的任务 -->
+      <view class="record-card pending" wx:if="{{dateTasks.length > 0 && !selectedRecords[selectedTask.id]}}">
+        <view class="record-info">
+          <text class="record-task-name">{{selectedTask.name}}</text>
+          <text class="record-status pending-text">未打卡</text>
+        </view>
+      </view>
+
+      <!-- 已打卡的记录 -->
+      <view class="record-card" wx:if="{{selectedRecords[selectedTask.id]}}">
+        <view class="record-info">
+          <text class="record-task-name">{{selectedRecords[selectedTask.id].taskName}}</text>
+          <text class="record-status {{selectedRecords[selectedTask.id].status === 'completed' ? 'completed-text' : 'missed-text'}}">
+            {{selectedRecords[selectedTask.id].status === 'completed' ? '已完成' : '未完成'}}
+          </text>
+        </view>
+        <view class="record-detail" wx:if="{{selectedRecords[selectedTask.id].note}}">
+          <text class="record-note">{{selectedRecords[selectedTask.id].note}}</text>
+        </view>
+      </view>
+
+      <!-- 无记录 -->
+      <view class="no-records" wx:if="{{dateTasks.length === 0}}">
+        <text class="no-records-text">该日无此任务</text>
+      </view>
+    </view>
+
+  </block>
+</view>

@@ -1,0 +1,293 @@
+/* ==================== 页面容器 ==================== */
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 120rpx;
+}
+
+/* ==================== 顶部日期区域 ==================== */
+.header {
+  background-color: #ffffff;
+  padding: 40rpx 32rpx 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+}
+
+.date-section {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 16rpx;
+}
+
+.date-text {
+  font-size: 52rpx;
+  font-weight: 700;
+  color: #333333;
+  letter-spacing: 2rpx;
+}
+
+.weekday-text {
+  font-size: 30rpx;
+  color: #888888;
+  margin-left: 20rpx;
+}
+
+.tag-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.workday-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+}
+
+.workday-tag.workday {
+  background-color: #e8f5e9;
+  color: #43a047;
+}
+
+.workday-tag.restday {
+  background-color: #fff3e0;
+  color: #ef6c00;
+}
+
+.import-btn {
+  display: flex;
+  align-items: center;
+  padding: 8rpx 20rpx;
+  background-color: #f0f0f0;
+  border-radius: 20rpx;
+}
+
+.import-icon {
+  font-size: 28rpx;
+  color: #666666;
+  margin-right: 6rpx;
+}
+
+.import-text {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+/* ==================== 任务列表 ==================== */
+.task-list {
+  padding: 0 24rpx;
+}
+
+.task-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  padding: 28rpx 24rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.color-bar {
+  width: 8rpx;
+  height: 80rpx;
+  border-radius: 4rpx;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.task-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-name-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8rpx;
+}
+
+.task-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-right: 16rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.freq-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4rpx 14rpx;
+  background-color: #f0f4f8;
+  border-radius: 8rpx;
+  flex-shrink: 0;
+}
+
+.freq-tag text {
+  font-size: 22rpx;
+  color: #78909c;
+}
+
+.task-status {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.status-text {
+  font-size: 24rpx;
+  margin-right: 12rpx;
+}
+
+.status-text.completed {
+  color: #43a047;
+}
+
+.status-text.missed {
+  color: #e53935;
+}
+
+.note-text {
+  font-size: 22rpx;
+  color: #999999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 300rpx;
+}
+
+/* ==================== 操作按钮 ==================== */
+.task-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  flex-shrink: 0;
+  margin-left: 16rpx;
+}
+
+.action-btn {
+  padding: 12rpx 28rpx;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.action-btn text {
+  font-size: 24rpx;
+}
+
+.checkin-btn {
+  background-color: #4A90D9;
+}
+
+.checkin-btn text {
+  color: #ffffff;
+}
+
+.miss-btn {
+  background-color: #fff0f0;
+}
+
+.miss-btn text {
+  color: #e53935;
+}
+
+.note-btn {
+  background-color: #f0f4f8;
+}
+
+.note-btn text {
+  color: #546e7a;
+}
+
+/* ==================== 空状态 ==================== */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200rpx;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #999999;
+  margin-bottom: 12rpx;
+}
+
+.empty-hint {
+  font-size: 26rpx;
+  color: #cccccc;
+}
+
+/* ==================== 浮动添加按钮 ==================== */
+.fab {
+  position: fixed;
+  right: 40rpx;
+  bottom: 80rpx;
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 56rpx;
+  background-color: #4A90D9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(74, 144, 217, 0.4);
+}
+
+.fab-icon {
+  font-size: 56rpx;
+  color: #ffffff;
+  line-height: 1;
+  font-weight: 300;
+}
+
+/* ==================== 底部导航栏 ==================== */
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 110rpx;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 -2rpx 8rpx rgba(0, 0, 0, 0.06);
+  z-index: 100;
+}
+
+.tab-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+}
+
+.tab-item.active .tab-text {
+  color: #4A90D9;
+  font-weight: 600;
+}
+
+.tab-icon {
+  font-size: 40rpx;
+  margin-bottom: 4rpx;
+}
+
+.tab-text {
+  font-size: 22rpx;
+  color: #999999;
+}

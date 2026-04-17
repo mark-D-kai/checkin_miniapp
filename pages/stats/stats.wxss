@@ -1,0 +1,399 @@
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 任务选择器 */
+.task-picker-section {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.picker-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.picker-label {
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.picker-value {
+  flex: 1;
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: 500;
+  margin-left: 16rpx;
+}
+
+.picker-arrow {
+  font-size: 28rpx;
+  color: #999999;
+  margin-left: 16rpx;
+}
+
+/* 编辑任务按钮 */
+.edit-task-btn {
+  margin-top: 16rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.edit-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  padding: 12rpx 24rpx;
+  border: 2rpx solid #4A90D9;
+  border-radius: 40rpx;
+  background-color: #ffffff;
+}
+
+.edit-icon {
+  font-size: 24rpx;
+  color: #4A90D9;
+}
+
+.edit-text {
+  font-size: 28rpx;
+  color: #4A90D9;
+  font-weight: 500;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx 0;
+}
+
+.empty-text {
+  font-size: 32rpx;
+  color: #999999;
+  margin-bottom: 16rpx;
+}
+
+.empty-hint {
+  font-size: 26rpx;
+  color: #cccccc;
+}
+
+/* 统计卡片 */
+.stats-cards {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.stat-card {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-value {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #4A90D9;
+  margin-bottom: 8rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 总打卡次数 */
+.total-checkins {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.total-label {
+  font-size: 30rpx;
+  color: #666666;
+}
+
+.total-value {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+/* 月度选择器 */
+.month-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.month-arrow {
+  font-size: 36rpx;
+  color: #4A90D9;
+  font-weight: bold;
+  padding: 8rpx 16rpx;
+  border-radius: 8rpx;
+  background-color: #f0f8ff;
+}
+
+.month-arrow:active {
+  background-color: #e0f0ff;
+}
+
+/* 图表区域 */
+.chart-section {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.chart-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.ring-wrapper {
+  padding: 20rpx 0;
+}
+
+.ring-canvas {
+  width: 200px;
+  height: 200px;
+}
+
+.trend-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* 导出按钮 */
+.export-section {
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.export-btn {
+  width: 300rpx;
+  height: 80rpx;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  border: none;
+}
+
+.trend-canvas {
+  width: 650px;
+  height: 300px;
+}
+
+.heatmap-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.heatmap-canvas {
+  width: 650px;
+  height: 200px;
+}
+
+/* 月度打卡日历 */
+.calendar-section {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.calendar-header {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.calendar-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.calendar-weekdays {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16rpx;
+}
+
+.weekday {
+  width: 14%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999999;
+}
+
+.calendar-days {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day-item {
+  width: 14%;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
+.day-number {
+  display: block;
+  font-size: 24rpx;
+  margin-bottom: 8rpx;
+  color: #666666;
+}
+
+.status-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.status-dot.completed {
+  background: #00b42a; /* 绿点：完成打卡 */
+}
+
+.status-dot.unfinished {
+  background: #f53f3f; /* 红点：未完成打卡 */
+}
+
+.status-dot.missed {
+  background: #f53f3f; /* 红点：未完成打卡 */
+}
+
+.status-dot.uncheck {
+  background: #e5e5e5; /* 白点：未打卡 */
+}
+
+.status-dot.empty {
+  display: none;
+}
+
+/* 打卡记录详情 */
+.records-section {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-top: 20rpx;
+}
+
+.records-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.record-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  margin-bottom: 16rpx;
+  border-radius: 12rpx;
+  background-color: #f9f9f9;
+}
+
+.record-card.pending {
+  background-color: #fff8e1;
+  border-left: 8rpx solid #ff9800;
+}
+
+.record-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12rpx;
+}
+
+.record-task-name {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+.record-status {
+  font-size: 26rpx;
+  font-weight: bold;
+  padding: 6rpx 12rpx;
+  border-radius: 12rpx;
+}
+
+.pending-text {
+  color: #ff9800;
+  background-color: #fff3e0;
+}
+
+.completed-text {
+  color: #00b42a;
+  background-color: #e8f5e9;
+}
+
+.missed-text {
+  color: #f53f3f;
+  background-color: #ffebee;
+}
+
+.record-detail {
+  padding: 12rpx;
+  background-color: #ffffff;
+  border-radius: 8rpx;
+  margin-top: 8rpx;
+}
+
+.record-note {
+  font-size: 26rpx;
+  color: #666666;
+  line-height: 1.5;
+}
+
+.no-records {
+  text-align: center;
+  padding: 40rpx;
+  color: #999999;
+  font-size: 28rpx;
+  background-color: #f5f5f5;
+  border-radius: 12rpx;
+}
+
+.no-records-text {
+  color: #999999;
+}

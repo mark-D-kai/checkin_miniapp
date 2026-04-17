@@ -1,0 +1,93 @@
+<view class="container">
+  <!-- 顶部日期区域 -->
+  <view class="header">
+    <view class="date-section">
+      <text class="date-text">{{today}}</text>
+      <text class="weekday-text">{{weekday}}</text>
+    </view>
+    <view class="tag-section">
+      <view class="workday-tag {{isWorkday ? 'workday' : 'restday'}}">
+        <text>{{isWorkday ? '工作日' : '休息日'}}</text>
+      </view>
+      <view class="import-btn" bindtap="goImportHoliday">
+        <text class="import-icon">📥</text>
+        <text class="import-text">假日</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 任务列表 -->
+  <view class="task-list" wx:if="{{hasTasks}}">
+    <view class="task-card" wx:for="{{todayTasks}}" wx:key="id">
+      <!-- 左侧颜色条 -->
+      <view class="color-bar" style="background-color: {{item.color || '#4A90D9'}};"></view>
+      <!-- 任务信息 -->
+      <view class="task-info">
+        <view class="task-name-row">
+          <text class="task-name">{{item.name}}</text>
+          <view class="freq-tag">
+            <text>{{item.frequency === 'daily' ? '每日' : '工作日'}}</text>
+          </view>
+        </view>
+        <!-- 状态显示 -->
+        <view class="task-status" wx:if="{{todayRecords[item.id]}}">
+          <text class="status-text {{todayRecords[item.id].status === 'completed' ? 'completed' : 'missed'}}">
+            {{todayRecords[item.id].status === 'completed' ? '已完成' : '未完成'}}
+          </text>
+          <text class="note-text" wx:if="{{todayRecords[item.id].note}}">
+            {{todayRecords[item.id].note}}
+          </text>
+        </view>
+      </view>
+      <!-- 操作按钮 -->
+      <view class="task-actions">
+        <block wx:if="{{!todayRecords[item.id]}}">
+          <view class="action-btn checkin-btn" bindtap="handleCheckIn" data-taskid="{{item.id}}">
+            <text>打卡</text>
+          </view>
+          <view class="action-btn miss-btn" bindtap="handleMiss" data-taskid="{{item.id}}">
+            <text>未完成</text>
+          </view>
+        </block>
+        <block wx:else>
+          <view class="action-btn note-btn" bindtap="handleNote" data-taskid="{{item.id}}">
+            <text>备注</text>
+          </view>
+        </block>
+
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{!hasTasks}}">
+    <text class="empty-icon">📋</text>
+    <text class="empty-text">今日暂无打卡任务</text>
+    <text class="empty-hint">点击下方按钮添加任务</text>
+  </view>
+
+  <!-- 浮动添加按钮 -->
+  <view class="fab" bindtap="goAddTask">
+    <text class="fab-icon">+</text>
+  </view>
+
+  <!-- 底部导航栏 -->
+  <view class="tab-bar">
+    <view class="tab-item active" bindtap="goHome">
+      <text class="tab-icon">🏠</text>
+      <text class="tab-text">首页</text>
+    </view>
+    <view class="tab-item" bindtap="goCalendar">
+      <text class="tab-icon">📅</text>
+      <text class="tab-text">日历</text>
+    </view>
+    <view class="tab-item" bindtap="goStats">
+      <text class="tab-icon">📊</text>
+      <text class="tab-text">统计</text>
+    </view>
+    <view class="tab-item" bindtap="goSettings">
+      <text class="tab-icon">⚙️</text>
+      <text class="tab-text">设置</text>
+    </view>
+  </view>
+</view>

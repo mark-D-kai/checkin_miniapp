@@ -1,0 +1,276 @@
+.container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* 月份切换 */
+.month-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 0;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+}
+
+.month-arrow {
+  width: 80rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  color: #4A90D9;
+  font-weight: bold;
+}
+
+.month-arrow:active {
+  opacity: 0.6;
+}
+
+.month-title {
+  flex: 1;
+  text-align: center;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+/* 星期标题 */
+.weekday-row {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 16rpx 16rpx 0 0;
+  padding: 16rpx 0;
+  margin-bottom: 0;
+}
+
+.weekday-cell {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  color: #999999;
+  font-weight: 500;
+}
+
+/* 日历网格 */
+.calendar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  border-radius: 0 0 16rpx 16rpx;
+  padding: 8rpx 0 16rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.day-cell {
+  width: 14.28%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.day-cell:active {
+  opacity: 0.7;
+}
+
+.day-number {
+  font-size: 30rpx;
+  color: #333333;
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.other-month .day-number {
+  color: #cccccc;
+}
+
+.today .day-number {
+  color: #4A90D9;
+  font-weight: bold;
+  border: 2rpx solid #4A90D9;
+}
+
+.selected .day-number {
+  background-color: #4A90D9;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.selected.today .day-number {
+  border: none;
+}
+
+/* 打卡状态圆点 */
+.dot-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rpx;
+  gap: 6rpx;
+}
+
+.status-dot {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+}
+
+.dot-completed {
+  background-color: #52C41A;
+}
+
+.dot-missed {
+  background-color: #FF4D4F;
+}
+
+/* 选中日期记录区域 */
+.records-section {
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.records-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+  padding-bottom: 16rpx;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+/* 记录卡片 */
+.record-card {
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.record-card:last-child {
+  border-bottom: none;
+}
+
+.record-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.record-task-name {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: 500;
+}
+
+.record-status {
+  font-size: 26rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.completed-text {
+  color: #52C41A;
+  background-color: #f6ffed;
+}
+
+.missed-text {
+  color: #FF4D4F;
+  background-color: #fff2f0;
+}
+
+.pending-text {
+  color: #999999;
+  background-color: #f5f5f5;
+}
+
+.record-detail {
+  margin-bottom: 12rpx;
+}
+
+.record-note {
+  font-size: 26rpx;
+  color: #888888;
+  padding: 8rpx 16rpx;
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+}
+
+.record-actions {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 8rpx;
+}
+
+.action-btn {
+  padding: 8rpx 24rpx;
+  border-radius: 24rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.checkin-btn {
+  background-color: #4A90D9;
+  color: #ffffff;
+}
+
+.checkin-btn:active {
+  opacity: 0.8;
+}
+
+.miss-btn {
+  background-color: #ffffff;
+  color: #FF4D4F;
+  border: 1rpx solid #FF4D4F;
+}
+
+.miss-btn:active {
+  opacity: 0.8;
+}
+
+.note-btn {
+  background-color: #ffffff;
+  color: #4A90D9;
+  border: 1rpx solid #4A90D9;
+}
+
+.note-btn:active {
+  opacity: 0.8;
+}
+
+/* 导出按钮 */
+.export-section {
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.export-btn {
+  width: 300rpx;
+  height: 80rpx;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  border: none;
+}
+
+/* 无记录 */
+.no-records {
+  padding: 40rpx 0;
+  text-align: center;
+}
+
+.no-records-text {
+  font-size: 28rpx;
+  color: #999999;
+}

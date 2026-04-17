@@ -1,0 +1,43 @@
+.settings-container {
+  padding: 20rpx;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+
+
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  background-color: white;
+  border-radius: 10rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.item-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+
+.item-text {
+  flex: 1;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.item-arrow {
+  font-size: 30rpx;
+  color: #999;
+}
+
+.version-item {
+  color: #666;
+}
+
+.version-number {
+  font-size: 28rpx;
+  color: #999;
+}

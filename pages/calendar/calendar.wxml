@@ -1,0 +1,97 @@
+<view class="container">
+  <!-- 月份切换 -->
+  <view class="month-header">
+    <view class="month-arrow" bindtap="prevMonth">
+      <text>‹</text>
+    </view>
+    <view class="month-title">
+      <text>{{currentYear}}年{{currentMonth}}月</text>
+    </view>
+    <view class="month-arrow" bindtap="nextMonth">
+      <text>›</text>
+    </view>
+  </view>
+
+  <!-- 星期标题 -->
+  <view class="weekday-row">
+    <view class="weekday-cell" wx:for="{{['日','一','二','三','四','五','六']}}" wx:key="*this">
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 日历网格 -->
+  <view class="calendar-grid">
+    <view
+      class="day-cell {{item.isCurrentMonth ? 'current-month' : 'other-month'}} {{item.isToday ? 'today' : ''}} {{item.date === selectedDate ? 'selected' : ''}}"
+      wx:for="{{days}}"
+      wx:key="date"
+      bindtap="selectDate"
+      data-date="{{item.date}}"
+    >
+      <text class="day-number">{{item.day}}</text>
+      <view class="dot-row" wx:if="{{item.records.length > 0}}">
+        <view
+          class="status-dot {{record.status === 'completed' ? 'dot-completed' : 'dot-missed'}}"
+          wx:for="{{item.records}}"
+          wx:for-item="record"
+          wx:for-index="idx"
+          wx:key="record.id"
+        ></view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <!-- 选中日期的打卡记录 -->
+  <view class="records-section" wx:if="{{selectedDate}}">
+    <view class="records-title">
+      <text>{{selectedDate}} 打卡记录</text>
+    </view>
+
+    <!-- 未打卡的任务 -->
+    <view class="record-card pending" wx:for="{{tasks}}" wx:key="id" wx:if="{{!selectedRecords[item.id]}}">
+      <view class="record-info">
+        <text class="record-task-name">{{item.name}}</text>
+        <text class="record-status pending-text">未打卡</text>
+      </view>
+      <view class="record-actions">
+        <view class="action-btn checkin-btn" bindtap="handleCheckIn" data-taskid="{{item.id}}">
+          <text>打卡</text>
+        </view>
+        <view class="action-btn miss-btn" bindtap="handleMiss" data-taskid="{{item.id}}">
+          <text>未完成</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 已打卡的记录 -->
+    <view class="record-card" wx:for="{{selectedRecords}}" wx:key="id">
+      <view class="record-info">
+        <text class="record-task-name">{{item.taskName}}</text>
+        <text class="record-status {{item.status === 'completed' ? 'completed-text' : 'missed-text'}}">
+          {{item.status === 'completed' ? '已完成' : '未完成'}}
+        </text>
+      </view>
+      <view class="record-detail" wx:if="{{item.note}}">
+        <text class="record-note">{{item.note}}</text>
+      </view>
+      <view class="record-actions">
+        <view class="action-btn note-btn" bindtap="handleNote" data-recordid="{{item.id}}">
+          <text>备注</text>
+        </view>
+        <view class="action-btn checkin-btn" wx:if="{{item.status !== 'completed'}}" bindtap="handleCheckIn" data-taskid="{{item.taskId}}">
+          <text>补卡</text>
+        </view>
+        <view class="action-btn miss-btn" wx:if="{{item.status !== 'missed'}}" bindtap="handleMiss" data-taskid="{{item.taskId}}">
+          <text>标记未完成</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 无记录 -->
+    <view class="no-records" wx:if="{{selectedRecords.length === 0 && tasks.length === 0}}">
+      <text class="no-records-text">该日无打卡任务</text>
+    </view>
+  </view>
+</view>

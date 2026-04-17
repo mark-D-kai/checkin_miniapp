@@ -1,0 +1,27 @@
+<view class="settings-container">
+
+
+  <view class="setting-item" bindtap="navigateToTaskManager">
+    <view class="item-icon">📋</view>
+    <view class="item-text">任务管理</view>
+    <view class="item-arrow">></view>
+  </view>
+
+  <view class="setting-item" bindtap="exportData">
+    <view class="item-icon">📤</view>
+    <view class="item-text">导出数据</view>
+    <view class="item-arrow">></view>
+  </view>
+
+  <view class="setting-item" bindtap="importData">
+    <view class="item-icon">📥</view>
+    <view class="item-text">导入数据</view>
+    <view class="item-arrow">></view>
+  </view>
+
+  <view class="setting-item version-item">
+    <view class="item-icon">ℹ️</view>
+    <view class="item-text">软件版本</view>
+    <view class="version-number">{{version}}</view>
+  </view>
+</view>

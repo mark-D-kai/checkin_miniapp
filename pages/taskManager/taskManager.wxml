@@ -1,0 +1,31 @@
+<view class="task-manager-container">
+  <!-- 页面标题 -->
+  <view class="page-title">任务管理</view>
+
+  <!-- 任务列表 -->
+  <view class="task-list" wx:if="{{tasks.length > 0}}">
+    <view class="task-item" wx:for="{{tasks}}" wx:key="id">
+      <view class="task-info">
+        <view class="task-color" style="background-color: {{item.color}}"></view>
+        <view class="task-name">{{item.name}}</view>
+      </view>
+      <view class="task-actions">
+        <view class="action-btn edit-btn" bindtap="editTask" data-task-id="{{item.id}}">
+          <text class="action-icon">✏️</text>
+          <text class="action-text">编辑</text>
+        </view>
+        <view class="action-btn delete-btn" bindtap="showDeleteConfirm" data-task-id="{{item.id}}">
+          <text class="action-icon">🗑️</text>
+          <text class="action-text">删除</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{tasks.length === 0}}">
+    <text class="empty-icon">📝</text>
+    <text class="empty-text">暂无活跃任务</text>
+    <text class="empty-hint">请先在首页添加打卡任务</text>
+  </view>
+</view>
